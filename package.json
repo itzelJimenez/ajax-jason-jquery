@@ -1,0 +1,23 @@
+{
+  "name": "xhr-js",
+  "version": "1.0.0",
+  "description": "XHR Probando XMLHttpRequest con JSON\u001b[",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C\u001b[C(https://github.com/itzelJimenez/xhr-jason-jquery.git)"
+  },
+  "keywords": [
+    "js",
+    "xhr",
+    "json"
+  ],
+  "author": "Itzel Jiménez <itzeljimenez.do@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
