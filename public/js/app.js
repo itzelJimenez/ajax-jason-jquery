@@ -33,53 +33,53 @@ var imagenes = [
 	"imagen":"img/bulbasaur.png"
 },
 {
-	"imagen":"img/blastoise.png"
+	"imagen":"img/ivysaur.png"
 },
 {
-	"imagen":"img/bulbasaur.png"
+	"imagen":"img/venusaur.png"
 },
 {
-	"imagen":"img/blastoise.png"
+	"imagen":"img/charmander.png"
 },{
-	"imagen":"img/bulbasaur.png"
+	"imagen":"img/charmeleon.png"
 },
 {
-	"imagen":"img/blastoise.png"
+	"imagen":"img/charizard.png"
 },{
-	"imagen":"img/bulbasaur.png"
+	"imagen":"img/squirtle.png"
 },
 {
-	"imagen":"img/blastoise.png"
+	"imagen":"img/wartortle.png"
 },{
-	"imagen":"img/bulbasaur.png"
+	"imagen":"img/blastoise.png"
 },
 {
-	"imagen":"img/blastoise.png"
+	"imagen":"img/caterpie.png"
 },{
-	"imagen":"img/bulbasaur.png"
+	"imagen":"img/metapod.png"
 },
 {
-	"imagen":"img/blastoise.png"
+	"imagen":"img/butterfree.png"
 },{
-	"imagen":"img/bulbasaur.png"
+	"imagen":"img/weedle.png"
 },
 {
-	"imagen":"img/blastoise.png"
+	"imagen":"img/kakuna.png"
 },{
-	"imagen":"img/bulbasaur.png"
+	"imagen":"img/beedrill.png"
 },
 {
-	"imagen":"img/blastoise.png"
+	"imagen":"img/pidgey.png"
 },{
-	"imagen":"img/bulbasaur.png"
+	"imagen":"img/pidgeotto.png"
 },
 {
-	"imagen":"img/blastoise.png"
+	"imagen":"img/pidgeot.png"
 },{
-	"imagen":"img/bulbasaur.png"
+	"imagen":"img/rattata.png"
 },
 {
-	"imagen":"img/blastoise.png"
+	"imagen":"img/raticate.png"
 },
 ]
 console.log(imagenes);
