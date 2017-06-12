@@ -75,28 +75,40 @@ function crearPokemons(pokemons, imagenes) {
 		.replace("**url**", "http://pokeapi.co/api/v2/pokemon-species/"+(indice+1)+"/");
   	});
 	$contPokemones.html(plantillaFinal); 
-	var $link = $('.link').click(verThis); 	
+	var $link = $('.link').click(detallePokemon); 	
 	modalPokemon();
 }
 
+var plantillaDetalle = '<h4>**nombre**</h4>' + 
+							'<div class="row">' + 
+								'<div class="col s6">'+
+									'<img src="**src**">'+
+								'</div>'+
+								'<div class="col s6">'+
+									'<p><strong>Habitat :</strong>"**habitat**</p>'+
+									'<p><strong>Color :</strong>"**color**"</p>'+
+									'<p><strong>Shape :</strong>"**shape**"</p>'+
+									'<p><strong>Genera :</strong>"**genera**"</p>'+
+								'</div>'+
+							'</div>'+
+						'</div>';
 
-
-function verThis(){
+function detallePokemon(){
+	var $modalDetalle = $('.modal-content');
+	var $imagen = ($(this).find("img").attr('src'));
 	$.getJSON(this.dataset.url, function(response){
 	var habitat = response.habitat.name;
 	var color = response.color.name;
 	var shape = response.shape.name;
 	var genera = response.genera[0].genus;
-	console.log(habitat, color, shape, genera);
-	mostrarHabitat(habitat);
+
+	crearDetalle(habitat, color, shape, genera);
 	});
 };
 
-
-function mostrarHabitat(habitat){
-	
+function crearDetalle(habitat, color, shape, genera){
+	console.log(habitat, color, shape, genera);
 }
-
 function modalPokemon(){
 	$('.modal').modal();
 }
