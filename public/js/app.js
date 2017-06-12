@@ -87,34 +87,48 @@ var plantillaDetalle = '<h4>**nombre**</h4>' +
 									'<img src="**src**" class="img-100 vertical-align">'+
 								'</div>'+
 								'<div class="col s6">'+
-									'<p><strong>Habitat :</strong>"**habitat**"</p>'+
-									'<p><strong>Color :</strong>"**color**"</p>'+
-									'<p><strong>Shape :</strong>"**shape**"</p>'+
-									'<p><strong>Genera :</strong>"**genera**"</p>'+
+									'<p><strong>Habitat :</strong>**habitat**</p>'+
+									'<p><strong>Color :</strong>**color**</p>'+
+									'<p><strong>Shape :</strong>**shape**</p>'+
+									'<p><strong>Genera :</strong>**genera**</p>'+
 								'</div>'+
 							'</div>'+
 						'</div>';
 
 function detallePokemon(){
-	var $imagen = ($(this).find("img").attr('src'));
+	console.log(this);
+	var $imagen = $(this).find("img").attr('src');
+	console.log($imagen)
 	var $nombre = ($(this).parent().children('h6').text()).toUpperCase();
-
+	console.log($nombre)
+	console.log(this.dataset.url)
+	$('.modal-content').html("");
 	$.getJSON(this.dataset.url, function(response){
-	var habitat = response.habitat.name;
-	var color = response.color.name;
-	var shape = response.shape.name;
-	var genera = response.genera[0].genus;
+		var habitat = response.habitat.name;
+		var color = response.color.name;
+		var shape = response.shape.name;
+		var genera = response.genera[0].genus;
 
-	crearDetalle(habitat, color, shape, genera, $imagen, $nombre);
+		crearDetalle({
+			habitat: habitat, 
+			color: color, 
+			shape: shape, 
+			genera: genera, 
+			imagen: $imagen, 
+			nombre: $nombre
+		});
 	});
 };
 
-function crearDetalle(habitat, color, shape, genera, imagen, nombre){
+function crearDetalle(detalle){
 	var $modalDetalle = $('.modal-content');
-	console.log(habitat, color, shape, genera, imagen, nombre);
-	var nuevaPlantilla = plantillaDetalle.replace("**nombre**", nombre).replace("**habitat**", habitat)
-							.replace("**color**", color).replace("**shape**", shape).replace("**genera**", genera)
-							.replace("**src**", imagen);
+	// console.log(habitat, color, shape, genera, imagen, nombre);
+	var nuevaPlantilla = plantillaDetalle.replace("**nombre**", detalle.nombre)
+		.replace("**habitat**", detalle.habitat)
+		.replace("**color**", detalle.color)
+		.replace("**shape**", detalle.shape)
+		.replace("**genera**", detalle.genera)
+		.replace("**src**", detalle.imagen);
 	
 	$modalDetalle.html(nuevaPlantilla);
 };
