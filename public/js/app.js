@@ -54,7 +54,7 @@ var imagenes = [
 		"imagen":"img/raticate.png"
 	},
 ];
-var plantilla = "<div class='col s3 card tarjeta hoverable'>"+ '<a href="#modalPokemon" data-url="**url**" >' +
+var plantilla = "<div class='col s3 card tarjeta hoverable'>"+ '<a href="#modalPokemon" class="link" data-url="**url**" >' +
 					'<img src="**imagen**" class="center-align">' + '</a>'+
 					'<h6 class="center-align">' +
 					'**nombrePokemon**'+ '</h6>' +
@@ -73,14 +73,15 @@ function crearPokemons(pokemons, imagenes) {
 	pokemons.forEach(function (pokemon, indice) {
 		plantillaFinal += plantilla.replace("**nombrePokemon**", pokemon.name).replace("**imagen**", imagenes[indice].imagen)
 		.replace("**url**", "http://pokeapi.co/api/v2/pokemon-species/"+(indice+1)+"/");
-
   	});
-	$contPokemones.html(plantillaFinal);  
-	
-
-	
+	$contPokemones.html(plantillaFinal); 
+	var $link = $('.link').click(verThis); 	
 }
 
 
+
+function verThis(){
+	console.log(this.dataset.url);
+};
 
 
