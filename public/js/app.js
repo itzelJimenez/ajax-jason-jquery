@@ -54,10 +54,12 @@ var imagenes = [
 		"imagen":"img/raticate.png"
 	},
 ];
-var plantilla = "<div class='col s3 card tarjeta hoverable'>"+ '<a href="#modalPokemon" class="link" data-url="**url**" >' +
-					'<img src="**imagen**" class="center-align">' + '</a>'+
+var plantilla = "<div class='col s3 card tarjeta hoverable'>"+ 
+					'<a href="#modalPokemon" class="link" data-url="**url**" >' +
+						'<img src="**imagen**" class="center-align img">' + 
+					'</a>'+
 					'<h6 class="center-align">' +
-					'**nombrePokemon**'+ '</h6>' +
+						'**nombrePokemon**'+ '</h6>' +
 					'</div>'
 
 $.getJSON("http://pokeapi.co/api/v2/pokemon/", function(response){
@@ -82,10 +84,10 @@ function crearPokemons(pokemons, imagenes) {
 var plantillaDetalle = '<h4>**nombre**</h4>' + 
 							'<div class="row">' + 
 								'<div class="col s6">'+
-									'<img src="**src**">'+
+									'<img src="**src**" class="img-100 vertical-align">'+
 								'</div>'+
 								'<div class="col s6">'+
-									'<p><strong>Habitat :</strong>"**habitat**</p>'+
+									'<p><strong>Habitat :</strong>"**habitat**"</p>'+
 									'<p><strong>Color :</strong>"**color**"</p>'+
 									'<p><strong>Shape :</strong>"**shape**"</p>'+
 									'<p><strong>Genera :</strong>"**genera**"</p>'+
@@ -94,21 +96,28 @@ var plantillaDetalle = '<h4>**nombre**</h4>' +
 						'</div>';
 
 function detallePokemon(){
-	var $modalDetalle = $('.modal-content');
 	var $imagen = ($(this).find("img").attr('src'));
+	var $nombre = ($(this).parent().children('h6').text()).toUpperCase();
+
 	$.getJSON(this.dataset.url, function(response){
 	var habitat = response.habitat.name;
 	var color = response.color.name;
 	var shape = response.shape.name;
 	var genera = response.genera[0].genus;
 
-	crearDetalle(habitat, color, shape, genera);
+	crearDetalle(habitat, color, shape, genera, $imagen, $nombre);
 	});
 };
 
-function crearDetalle(habitat, color, shape, genera){
-	console.log(habitat, color, shape, genera);
-}
+function crearDetalle(habitat, color, shape, genera, imagen, nombre){
+	var $modalDetalle = $('.modal-content');
+	console.log(habitat, color, shape, genera, imagen, nombre);
+	var nuevaPlantilla = plantillaDetalle.replace("**nombre**", nombre).replace("**habitat**", habitat)
+							.replace("**color**", color).replace("**shape**", shape).replace("**genera**", genera)
+							.replace("**src**", imagen);
+	
+	$modalDetalle.html(nuevaPlantilla);
+};
 function modalPokemon(){
 	$('.modal').modal();
 }
