@@ -76,12 +76,27 @@ function crearPokemons(pokemons, imagenes) {
   	});
 	$contPokemones.html(plantillaFinal); 
 	var $link = $('.link').click(verThis); 	
+	modalPokemon();
 }
 
 
 
 function verThis(){
-	console.log(this.dataset.url);
+	$.getJSON(this.dataset.url, function(response){
+	var habitat = response.habitat.name;
+	var color = response.color.name;
+	var shape = response.shape.name;
+	var genera = response.genera[0].genus;
+	console.log(habitat, color, shape, genera);
+	mostrarHabitat(habitat);
+	});
 };
 
 
+function mostrarHabitat(habitat){
+	
+}
+
+function modalPokemon(){
+	$('.modal').modal();
+}
