@@ -64,6 +64,7 @@ var plantilla = "<div class='col s3 card tarjeta hoverable'>"+
 
 $.getJSON("http://pokeapi.co/api/v2/pokemon/", function(response){
 	var pokemons = response.results;
+	console.log(response.next)
 	crearPokemons(pokemons, imagenes);
 });
 
@@ -98,11 +99,9 @@ var plantillaDetalle = '<h4>**nombre**</h4>' +
 function detallePokemon(){
 	console.log(this);
 	var $imagen = $(this).find("img").attr('src');
-	console.log($imagen)
 	var $nombre = ($(this).parent().children('h6').text()).toUpperCase();
-	console.log($nombre)
-	console.log(this.dataset.url)
-	$('.modal-content').html("");
+	console.log(this.dataset.url);
+	$('.modal-content').html($("<img />"));
 	$.getJSON(this.dataset.url, function(response){
 		var habitat = response.habitat.name;
 		var color = response.color.name;
