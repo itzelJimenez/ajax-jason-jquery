@@ -53,6 +53,58 @@ var imagenes = [
 	{
 		"imagen":"img/raticate.png"
 	},
+	{
+		"imagen":"img/bulbasaur.png"
+	},
+	{
+		"imagen":"img/ivysaur.png"
+	},
+	{
+		"imagen":"img/venusaur.png"
+	},
+	{
+		"imagen":"img/charmander.png"
+	},{
+		"imagen":"img/charmeleon.png"
+	},
+	{
+		"imagen":"img/charizard.png"
+	},{
+		"imagen":"img/squirtle.png"
+	},
+	{
+		"imagen":"img/wartortle.png"
+	},{
+		"imagen":"img/blastoise.png"
+	},
+	{
+		"imagen":"img/caterpie.png"
+	},{
+		"imagen":"img/metapod.png"
+	},
+	{
+		"imagen":"img/butterfree.png"
+	},{
+		"imagen":"img/weedle.png"
+	},
+	{
+		"imagen":"img/kakuna.png"
+	},{
+		"imagen":"img/beedrill.png"
+	},
+	{
+		"imagen":"img/pidgey.png"
+	},{
+		"imagen":"img/pidgeotto.png"
+	},
+	{
+		"imagen":"img/pidgeot.png"
+	},{
+		"imagen":"img/rattata.png"
+	},
+	{
+		"imagen":"img/raticate.png"
+	},
 ];
 var plantilla = "<div class='col s3 card tarjeta hoverable'>"+ 
 					'<a href="#modalPokemon" class="link" data-url="**url**" >' +
@@ -61,9 +113,10 @@ var plantilla = "<div class='col s3 card tarjeta hoverable'>"+
 					'<h6 class="center-align">' +
 						'**nombrePokemon**'+ '</h6>' +
 					'</div>'
+var $btnSiguiente = $("#next");
 
 var cargarPagina = function(){
-	$("#next").click(siguiente);
+	$btnSiguiente.click(siguiente);
 	$.getJSON("http://pokeapi.co/api/v2/pokemon/", function(response){
 		var pokemons = response.results;
 		var linkNext = response.next;
@@ -141,7 +194,14 @@ function modalPokemon(){
 }
 
 function siguiente(){
-	alert("ggg")
+	var $url = $btnSiguiente.attr("data-url");
+	console.log($url);
+	 $.getJSON($url, function (response) {
+	     var pokemons = response.results;
+	     var siguientes = response.next;
+	     $btnSiguiente.attr("data-url", siguientes);
+	     crearPokemons(pokemons, imagenes);
+	   });
 }
 
 $(document).ready(cargarPagina);
