@@ -54,56 +54,56 @@ var imagenes = [
 		"imagen":"img/raticate.png"
 	},
 	{
-		"imagen":"img/bulbasaur.png"
+		"imagen":"img/loading.gif"
 	},
 	{
-		"imagen":"img/ivysaur.png"
+		"imagen":"img/loading.gif"
 	},
 	{
-		"imagen":"img/venusaur.png"
+		"imagen":"img/loading.gif"
 	},
 	{
-		"imagen":"img/charmander.png"
+		"imagen":"img/loading.gif"
 	},{
-		"imagen":"img/charmeleon.png"
+		"imagen":"img/loading.gif"
 	},
 	{
-		"imagen":"img/charizard.png"
+		"imagen":"img/loading.gif"
 	},{
-		"imagen":"img/squirtle.png"
+		"imagen":"img/loading.gif"
 	},
 	{
-		"imagen":"img/wartortle.png"
+		"imagen":"img/loading.gif"
 	},{
-		"imagen":"img/blastoise.png"
+		"imagen":"img/loading.gif"
 	},
 	{
-		"imagen":"img/caterpie.png"
+		"imagen":"img/loading.gif"
 	},{
-		"imagen":"img/metapod.png"
+		"imagen":"img/loading.gif"
 	},
 	{
-		"imagen":"img/butterfree.png"
+		"imagen":"img/loading.gif"
 	},{
-		"imagen":"img/weedle.png"
+		"imagen":"img/loading.gif"
 	},
 	{
-		"imagen":"img/kakuna.png"
+		"imagen":"img/loading.gif"
 	},{
-		"imagen":"img/beedrill.png"
+		"imagen":"img/loading.gif"
 	},
 	{
-		"imagen":"img/pidgey.png"
+		"imagen":"img/loading.gif"
 	},{
-		"imagen":"img/pidgeotto.png"
+		"imagen":"img/loading.gif"
 	},
 	{
-		"imagen":"img/pidgeot.png"
+		"imagen":"img/loading.gif"
 	},{
-		"imagen":"img/rattata.png"
+		"imagen":"img/loading.gif"
 	},
 	{
-		"imagen":"img/raticate.png"
+		"imagen":"img/loading.gif"
 	},
 ];
 var plantilla = "<div class='col s3 card tarjeta hoverable'>"+ 
