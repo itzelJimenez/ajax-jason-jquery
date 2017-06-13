@@ -62,19 +62,23 @@ var plantilla = "<div class='col s3 card tarjeta hoverable'>"+
 						'**nombrePokemon**'+ '</h6>' +
 					'</div>'
 
-$.getJSON("http://pokeapi.co/api/v2/pokemon/", function(response){
-	var pokemons = response.results;
-	console.log(response.next)
-	crearPokemons(pokemons, imagenes);
-});
-
-
+var cargarPagina = function(){
+	$("#next").click(siguiente);
+	$.getJSON("http://pokeapi.co/api/v2/pokemon/", function(response){
+		var pokemons = response.results;
+		var linkNext = response.next;
+		 $("#next").attr("data-url", linkNext);
+		crearPokemons(pokemons, imagenes);
+	});
+	
+}
 function crearPokemons(pokemons, imagenes) {
 	var $contPokemones = $("#pokemones");
 	var plantillaFinal = "";
 	var noPokemon;
 	pokemons.forEach(function (pokemon, indice) {
-		plantillaFinal += plantilla.replace("**nombrePokemon**", pokemon.name).replace("**imagen**", imagenes[indice].imagen)
+		plantillaFinal += plantilla.replace("**nombrePokemon**", pokemon.name)
+		.replace("**imagen**", imagenes[indice].imagen)
 		.replace("**url**", "http://pokeapi.co/api/v2/pokemon-species/"+(indice+1)+"/");
   	});
 	$contPokemones.html(plantillaFinal); 
@@ -131,6 +135,13 @@ function crearDetalle(detalle){
 	
 	$modalDetalle.html(nuevaPlantilla);
 };
+
 function modalPokemon(){
 	$('.modal').modal();
 }
+
+function siguiente(){
+	alert("ggg")
+}
+
+$(document).ready(cargarPagina);
